@@ -2,7 +2,9 @@
   "name": "trustpass",
   "description": "A simple password strength meter & validator inspired by MailChimp's signup form.",
   "version": "0.1.0",
-  "author": "Mikael Korpela <mikael@ihminen.org> (http://www.mikaelkorpela.fi/)",
+  "authors": [
+    "Mikael Korpela <mikael@ihminen.org> (http://www.mikaelkorpela.fi)"
+  ],
   "homepage": "http://trustroots.github.io/trustpass/",
   "repository": {
     "type": "git",
