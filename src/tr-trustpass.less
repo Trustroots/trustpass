@@ -1,0 +1,42 @@
+/**
+ * Trustpass
+ */
+
+@trustpass-done-color: #3c763d;
+@trustpass-done-background: #dff0d8;
+@trustpass-done-radius: 3px;
+@trustpass-text-size: 1em;
+@trustpass-line-height: 1.5em;
+@trustpass-columns: 2;
+
+.trustpass-checklist {
+  display: block;
+  clear: both;
+  overflow: hidden;
+  margin: 10px 0;
+  padding: 0;
+  li {
+    display: block;
+    float: left;
+    width: unit(round(100 / @trustpass-columns, 2), %);
+    line-height: @trustpass-line-height;
+    font-size: @trustpass-text-size;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    opacity: 1;
+    transition: opacity .4s ease-in-out;
+    &.trustpass-yep {
+      opacity: .35;
+    }
+  }
+}
+
+.trustpass-done  {
+  display: block;
+  margin: 10px 0 0 0;
+  padding: 10px;
+  color: @trustpass-done-color;
+  background: @trustpass-done-background;
+  border-radius: @trustpass-done-radius;
+}

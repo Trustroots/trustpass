@@ -1,0 +1,36 @@
+{
+  "name": "trustpass",
+  "description": "A simple password strength meter & validator inspired by MailChimp's signup form.",
+  "version": "0.1.0",
+  "author": "Mikael Korpela <mikael@ihminen.org> (http://www.mikaelkorpela.fi/)",
+  "homepage": "https://github.com/trustroots/trustpass",
+  "keywords": [
+    "angularjs",
+    "javascript",
+    "directive",
+    "password",
+    "security",
+    "interface",
+    "UX",
+    "UI"
+  ],
+  "main": [
+    "dist/angular-leaflet-directive.js"
+  ],
+  "dependencies": {
+    "angular": "1.x"
+  },
+  "devDependencies": {
+    "bootstrap": "3.x",
+    "angular": "1.x"
+  },
+  "ignore": [
+    "**/.*",
+    "src",
+    "example",
+    "*.md",
+    "gulpfile.js",
+    "package.json",
+    "bower.json"
+  ]
+}

@@ -1,0 +1,33 @@
+/**
+ * Trustpass
+ */
+.trustpass-checklist {
+  display: block;
+  clear: both;
+  overflow: hidden;
+  margin: 10px 0;
+  padding: 0;
+}
+.trustpass-checklist li {
+  display: block;
+  float: left;
+  width: 50%;
+  line-height: 1.5em;
+  font-size: 1em;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  opacity: 1;
+  transition: opacity 0.4s ease-in-out;
+}
+.trustpass-checklist li.trustpass-yep {
+  opacity: .35;
+}
+.trustpass-done {
+  display: block;
+  margin: 10px 0 0 0;
+  padding: 10px;
+  color: #3c763d;
+  background: #dff0d8;
+  border-radius: 3px;
+}
