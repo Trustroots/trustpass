@@ -57,13 +57,14 @@ Pass a json object to `tr-trustpass` like this: `tr-trustpass="{maximum: true, s
 *"A word character" is a character from a-z, A-Z, 0-9, including the _ (underscore) character.*
 
 #### Other settings
-| **Option** | Default                                         | Description                                                                  |
-|------------|-------------------------------------------------|------------------------------------------------------------------------------|
-| toggle     | false                                           | Should checklist be visible only on focus?                                   |
-| keepHeight | false                                           | Should dropdown area keep its initially rendered height?                     |
-| minlength  | 8                                               | Minimum length of the password, if minimum test is enabled (on by default).  |
-| maxlength  | 50                                              | Maximum length of the password, if maximum test is enabled (off by default). |
-| message    | Great! Your password is secure. | A message shown after all tests pass.                                        |
+| **Option**   | Default                                         | Description                                                                  |
+|--------------|-------------------------------------------------|------------------------------------------------------------------------------|
+| toggle       | false                                           | Should checklist be visible only on focus?                                   |
+| keepHeight   | false                                           | Should dropdown area keep its initially rendered height?                     |
+| minlength    | 8                                               | Minimum length of the password, if minimum test is enabled (on by default).  |
+| maxlength    | 50                                              | Maximum length of the password, if maximum test is enabled (off by default). |
+| messageDone  | Great! Your password is secure.                 | A message shown after all tests pass.                                        |
+| messageGuide |                                                 | A message on top of checklist. Leave empty to hide.                          |
 
 
 ## License
