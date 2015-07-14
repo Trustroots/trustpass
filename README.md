@@ -11,13 +11,13 @@ This is a simple password strength meter & validator inspired by MailChimp's [si
 Install using [Bower](http://bower.io/):
 ```bash
 # install package and add it to bower.json dependencies
-$ bower install trustpass --save
+$ bower install angular-trustpass --save
 ```
 
 Include the script and style:
 ```html
-<link rel="stylesheet" href="bower_modules/trustpass/dist/tr-trustpass.min.css">
-<script src="bower_modules/trustpass/dist/tr-trustpass.min.js"></script>
+<link rel="stylesheet" href="bower_modules/angular-trustpass/dist/tr-trustpass.min.css">
+<script src="bower_modules/angular-trustpass/dist/tr-trustpass.min.js"></script>
 ```
 
 Include the `trTrustpass` dependency on your Angular module:
