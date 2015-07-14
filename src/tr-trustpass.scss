@@ -1,0 +1,58 @@
+
+$trustpass-done-color: #3c763d;
+$trustpass-done-background: #dff0d8;
+$trustpass-done-radius: 3px;
+$trustpass-done-text-size: 1em;
+$trustpass-text-size: 1em;
+$trustpass-line-height: 1.5em;
+$trustpass-columns: 2;
+$trustpass-guide-color: #888;
+$trustpass-guide-text-size: 0.8em;
+
+.trustpass {
+  clear: both;
+  overflow: hidden;
+}
+.trustpass-checklist {
+  clear: both;
+  overflow: hidden;
+  list-style: none;
+  padding: 10px 0;
+  margin: 0;
+  li {
+    display: block;
+    list-style: none;
+    float: left;
+    width: percentage(round(100 / $trustpass-columns));
+    line-height: $trustpass-line-height;
+    font-size: $trustpass-text-size;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    opacity: 1;
+    transition: opacity .4s ease-in-out;
+    &.trustpass-yep {
+      opacity: .3;
+    }
+  }
+}
+
+.trustpass-done  {
+  display: block;
+  clear: both;
+  margin: 10px 0 0 0;
+  padding: 10px;
+  color: $trustpass-done-color;
+  background: $trustpass-done-background;
+  border-radius: $trustpass-done-radius;
+  font-size: $trustpass-done-text-size;
+}
+
+.trustpass-guide {
+  display: block;
+  clear: both;
+  margin: 0;
+  padding: 10px 0 0 0;
+  color: $trustpass-guide-color;
+  font-size: $trustpass-guide-text-size;
+}

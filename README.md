@@ -5,14 +5,16 @@ This is a simple password strength meter & validator inspired by MailChimp's [si
 
 ![Screenshot](./example/screenshot.png)
 
-#### Usage
+## Usage
+
+#### Basic
 ```html
 <input type="password" tr-trustpass>
 ```
 
 #### Usage with options
 ```html
-<input type="password" tr-trustpass="{special: false, maximum: true}" ng-minlength="9" ng-maxlength="90">
+<input type="password" tr-trustpass="{special: false}" ng-minlength="9">
 ```
 
 #### More complicated usage with [Bootstrap](http://getbootstrap.com/) classes:
@@ -28,11 +30,15 @@ This is a simple password strength meter & validator inspired by MailChimp's [si
            placeholder="Password"
            tr-trustpass="{maximum: true, special: false, messageGuide: 'Make sure your password meets these requirements:'}"
            ng-minlength="9"
+           ng-maxlength="90"
            ng-model="password">
   </div>
   <button type="submit" ng-disabled="demo.password.$invalid" class="btn btn-primary">Sign in</button>
 </form>
 ```
+
+Password model will have `$invalid` set true and `$error.trustpass` set true when any of the tests fail. You can then style your form or input with [Angular validation classes](https://docs.angularjs.org/guide/forms#using-css-classes).
+
 
 ## Options
 Pass a json object to `tr-trustpass` like this: `tr-trustpass="{maximum: true, special: false}"`
@@ -60,5 +66,5 @@ Pass a json object to `tr-trustpass` like this: `tr-trustpass="{maximum: true, s
 | message    | Great! Your password is secure. | A message shown after all tests pass.                                        |
 
 
-### License
+## License
 [MIT](LICENSE.md)
