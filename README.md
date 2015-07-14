@@ -3,9 +3,21 @@ The trusty password security checklist.
 
 This is a simple password strength meter & validator inspired by MailChimp's [signup form](https://login.mailchimp.com/signup/).
 
+[See demo](https://trustroots.github.io/trustpass)
+
 ![Screenshot](./example/screenshot.png)
 
 ## Usage
+Include the script and style:
+```html
+<link rel="stylesheet" href="dist/tr-trustpass.min.css">
+<script src="dist/tr-trustpass.min.js"></script>
+```
+
+Include the `trTrustpass` dependency on your Angular module:
+```html
+angular.module('demoApp', ['trTrustpass']);
+```
 
 #### Basic
 ```html
@@ -66,6 +78,19 @@ Pass a json object to `tr-trustpass` like this: `tr-trustpass="{maximum: true, s
 | messageDone  | Great! Your password is secure.                 | A message shown after all tests pass.                                        |
 | messageGuide |                                                 | A message on top of checklist. Leave empty to hide.                          |
 
+
+## Development
+
+#### Build
+```bash
+gulp
+```
+
+#### Run the example
+```bash
+gulp demo
+```
+...and open [http://localhost:3000/](http://localhost:3000/) to your browser.
 
 ## License
 [MIT](LICENSE.md)

@@ -2,8 +2,8 @@
 <html ng-app="demoApp">
 <head>
   <title>Angular Trustpass demo</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../dist/tr-trustpass.css">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="tr-trustpass.css">
   <style>
     html, body {
       margin: 0;
@@ -25,7 +25,9 @@
     .demo {
       margin-top: 30px;
     }
-    /*.ng-pristine { border-color: gold; }*/
+    .table {
+      width:100%;
+    }
     .ng-dirty.ng-valid { border-color: green; }
     .ng-dirty.ng-invalid { border-color: red; }
   </style>
@@ -46,83 +48,83 @@
     </div>
 
     <div class="demo">
-    <div class="row">
+      <div class="row">
 
-      <div class="col-sm-6">
+        <div class="col-sm-6">
 
-        <h4>Simple example</h4>
+          <h4>Simple example</h4>
 
-        <form name="demoSimpleForm">
-          <input type="password"
-                 class="form-control input-lg"
-                 placeholder="Password"
-                 tr-trustpass="{special: false}"
-                 ng-model="passwordSimple">
-        </form>
+          <form name="demoSimpleForm">
+            <input type="password"
+                   class="form-control input-lg"
+                   placeholder="Password"
+                   tr-trustpass="{special: false}"
+                   ng-model="passwordSimple">
+          </form>
 
-      </div>
-      <div class="col-sm-6">
-        <br><br>
-        <div class="well">
-          <strong>Model:</strong> {{ passwordSimple }}
         </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-sm-6">
-
-        <h4>More complex example</h4>
-
-        <form name="demoForm">
-          <div class="form-group" ng-class="{'has-error': demoForm.password.$invalid && demoForm.password.$dirty, 'has-success': !demoForm.password.$invalid && demoForm.password.$dirty}">
-            <input id="password"
-              class="form-control input-lg"
-              type="password"
-              name="password"
-              placeholder="Password"
-              tr-trustpass="{maximum: true, messageGuide: 'Make sure your password meets these requirements:', keepHeight: true}"
-              ng-minlength="9"
-              ng-maxlength="90"
-              ng-model="password">
+        <div class="col-sm-6">
+          <br><br>
+          <div class="well">
+            <strong>Model:</strong> {{ passwordSimple }}
           </div>
-          <button type="submit" ng-disabled="demoForm.password.$invalid" class="btn btn-primary">Sign in</button>
-        </form>
-
-      </div>
-      <div class="col-sm-6">
-        <br><br>
-        <div class="well">
-
-          <table class="table" style="width:100%;">
-            <tbody>
-              <tr>
-                <th>Model</th>
-                <td>{{ password }}</td>
-              </tr>
-              <tr>
-                <th>Invalid</th>
-                <td><code ng-class="{ 'text-danger': demoForm.password.$invalid, 'text-success': !demoForm.password.$invalid }">{{ demoForm.password.$invalid }}</code></td>
-              </tr>
-              <tr>
-                <th>Input errors</th>
-                <td><code ng-class="{ 'text-danger': demoForm.password.$error, 'text-success': !demoForm.password.$error }">{{ demoForm.password.$error | json }}</code></td>
-              </tr>
-              <tr>
-                <th>Change to</th>
-                <td>
-                  <div class="btn-group" role="group" aria-label="Password setters">
-                    <button class="btn btn-xs btn-danger" ng-click="password = 'foo'">Invalid</button>
-                    <button class="btn btn-xs btn-success" ng-click="password = 'Hello World!1'">Valid</button>
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-
         </div>
       </div>
-    </div>
-    </div>
+      <div class="row">
+        <div class="col-sm-6">
+
+          <h4>More complex example</h4>
+
+          <form name="demoForm">
+            <div class="form-group" ng-class="{'has-error': demoForm.password.$invalid && demoForm.password.$dirty, 'has-success': !demoForm.password.$invalid && demoForm.password.$dirty}">
+              <input id="password"
+                     class="form-control input-lg"
+                     type="password"
+                     name="password"
+                     placeholder="Password"
+                     tr-trustpass="{maximum: true, messageGuide: 'Make sure your password meets these requirements:', keepHeight: true}"
+                     ng-minlength="9"
+                     ng-maxlength="90"
+                     ng-model="password">
+            </div>
+            <button type="submit" ng-disabled="demoForm.password.$invalid" class="btn btn-primary">Sign in</button>
+          </form>
+
+        </div>
+        <div class="col-sm-6">
+          <br><br>
+          <div class="well">
+
+            <table class="table">
+              <tbody>
+                <tr>
+                  <th>Model</th>
+                  <td>{{ password }}</td>
+                </tr>
+                <tr>
+                  <th>Invalid</th>
+                  <td><code ng-class="{ 'text-danger': demoForm.password.$invalid, 'text-success': !demoForm.password.$invalid }">{{ demoForm.password.$invalid }}</code></td>
+                </tr>
+                <tr>
+                  <th>Input errors</th>
+                  <td><code ng-class="{ 'text-danger': demoForm.password.$error, 'text-success': !demoForm.password.$error }">{{ demoForm.password.$error | json }}</code></td>
+                </tr>
+                <tr>
+                  <th>Change to</th>
+                  <td>
+                    <div class="btn-group" role="group" aria-label="Password setters">
+                      <button class="btn btn-xs btn-danger" ng-click="password = 'foo'">Invalid</button>
+                      <button class="btn btn-xs btn-success" ng-click="password = 'Hello World!1'">Valid</button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+          </div>
+        </div>
+      </div>
+    </div><!--.demo-->
 
     <div class="row footer">
       <div class="col-xs-6">
@@ -140,8 +142,8 @@
 
   </article>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
-  <script src="../dist/tr-trustpass.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
+  <script src="tr-trustpass.js"></script>
   <script>
     angular.module('demoApp', ['trTrustpass']);
   </script>
