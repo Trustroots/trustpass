@@ -1,5 +1,5 @@
 {
-  "name": "trustpass",
+  "name": "angular-trustpass",
   "description": "A simple password strength meter & validator inspired by MailChimp's signup form.",
   "version": "0.1.2",
   "private": false,
