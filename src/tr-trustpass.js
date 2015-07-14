@@ -11,9 +11,9 @@
     .module('trTrustpass', [])
     .directive('trTrustpass', trTrustpass);
 
-  trTrustpass.$inject = ['$compile'];
+  trTrustpass.$inject = ['$compile', '$timeout'];
 
-  function trTrustpass($compile) {
+  function trTrustpass($compile, $timeout) {
 
     return {
       restrict: 'A',
@@ -46,8 +46,10 @@
         // Settings
         toggle: false,
         minlength: 8,
-        maxlength: 1,
-        message: 'Your password is secure and you are good to go!',
+        maxlength: 50,
+        keepHeight: false,
+        messageGuide: '',
+        messageDone: 'Great! Your password is secure.',
       }, scope.trTrustpass);
 
       /**
@@ -89,25 +91,28 @@
         }
       };
 
+      // Keep model up-to date
+      /*
       element.bind('input', function(event) {
         scope.$apply(function() {
           ngModel.$setViewValue(event.target.value);
         });
       });
+      */
 
       // If toggling is in use, toggle on element focus
       scope.isVisible = !scope.options.toggle;
       if(scope.options.toggle) {
         scope.isVisible = false;
         element
-        .bind('focus', function() {
-          scope.isVisible = true;
-          scope.$apply();
-        })
-        .bind('blur', function() {
-          scope.isVisible = false;
-          scope.$apply();
-        });
+          .bind('focus', function() {
+            scope.isVisible = true;
+            scope.$apply();
+          })
+          .bind('blur', function() {
+            scope.isVisible = false;
+            scope.$apply();
+          });
       }
 
       /**
@@ -115,7 +120,8 @@
        * This could be done with
        */
       var template = angular.element(
-        '<section class="trustpass" ng-show="isVisible">' +
+        '<section class="trustpass" ng-show="isVisible" ng-style="{height: (options.keepHeight ? initialHeight : \'auto\')}">' +
+          '<div class="trustpass-guide" ng-if="isVisible && !isAllValid && options.messageGuide" ng-bind="options.messageGuide"></div>' +
           '<ul class="trustpass-checklist" ng-show="isVisible && !isAllValid">' +
             '<li ng-class="{ \'trustpass-nope\': !checklist.word,      \'trustpass-yep\': checklist.word      }" ng-if="options.word">Alphanumeric characters</li>' +
             '<li ng-class="{ \'trustpass-nope\': !checklist.lowercase, \'trustpass-yep\': checklist.lowercase }" ng-if="options.lowercase">One lowercase character</li>' +
@@ -125,11 +131,18 @@
             '<li ng-class="{ \'trustpass-nope\': !checklist.minimum,   \'trustpass-yep\': checklist.minimum   }" ng-if="options.minimum">{{ ::options.minlength }} characters minimum</li>' +
             '<li ng-class="{ \'trustpass-nope\': !checklist.maximum,   \'trustpass-yep\': checklist.maximum   }" ng-if="options.maximum">{{ ::options.maxlength }} characters maximum</li>' +
           '</ul>' +
-          '<div class="trustpass-done" ng-show="isVisible && isAllValid" ng-bind="options.message"></div>' +
+          '<div class="trustpass-done" ng-show="isVisible && isAllValid" ng-bind="options.messageDone"></div>' +
         '</section>');
       // This would be jQuery's contentTr.insertAfter(element); ...but we don't want to depend on jQuery here.
       element[0].parentNode.insertBefore(template[0], element[0].nextSibling);
       $compile(template)(scope);
+
+      // If keepHeight is true, save the initial height of the dropdown
+      if(scope.options.keepHeight) {
+        $timeout(function(){
+          scope.initialHeight = element[0].nextSibling.clientHeight + 'px';
+        });
+      }
 
       /**
        * Run validators for a string

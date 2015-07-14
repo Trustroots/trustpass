@@ -14,16 +14,18 @@
     }
     form {
       display: block;
+      padding-bottom: 30px;
+    }
+    .footer {
+      border-top: 1px solid #eee;
+      margin-top: 60px;
+      padding-top: 15px;
       margin-bottom: 30px;
     }
-    input {
-      font-size: 16px;
-      line-height: 16px;
-      padding: 10px;
-      border: 3px solid #eee;
-      outline: none;
+    .demo {
+      margin-top: 30px;
     }
-    .ng-pristine { border-color: gold; }
+    /*.ng-pristine { border-color: gold; }*/
     .ng-dirty.ng-valid { border-color: green; }
     .ng-dirty.ng-invalid { border-color: red; }
   </style>
@@ -38,30 +40,57 @@
           <h1>Angular Trustpass <small>By <a href="https://www.trustroots.org/">Trustroots.org</a></small></h1>
         </div>
         <p class="lead">This is a simple password strength meter & validator inspired by MailChimp's <a href="https://login.mailchimp.com/signup/">signup form</a>.</p>
+        <p class="lead">Read more from <a href="https://github.com/Trustroots/trustpass">GitHub</a>.</p>
+        <hr>
       </div>
     </div>
 
+    <div class="demo">
     <div class="row">
 
       <div class="col-sm-6">
 
+        <h4>Simple example</h4>
+
+        <form name="demoSimpleForm">
+          <input type="password"
+                 class="form-control input-lg"
+                 placeholder="Password"
+                 tr-trustpass="{special: false}"
+                 ng-model="passwordSimple">
+        </form>
+
+      </div>
+      <div class="col-sm-6">
+        <br><br>
+        <div class="well">
+          <strong>Model:</strong> {{ passwordSimple }}
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+
+        <h4>More complex example</h4>
+
         <form name="demoForm">
           <div class="form-group" ng-class="{'has-error': demoForm.password.$invalid && demoForm.password.$dirty, 'has-success': !demoForm.password.$invalid && demoForm.password.$dirty}">
-            <label for="password">Password</label>
             <input id="password"
-              class="form-control"
+              class="form-control input-lg"
               type="password"
               name="password"
               placeholder="Password"
-              tr-trustpass="{maximum: true, word: true}"
+              tr-trustpass="{maximum: true, messageGuide: 'Make sure your password meets these requirements:', keepHeight: true}"
               ng-minlength="9"
               ng-maxlength="90"
-              ng-model="password"/>
+              ng-model="password">
           </div>
-          <button type="submit" ng-disabled="demoForm.password.$invalid" class="btn btn-primary">Submit</button>
+          <button type="submit" ng-disabled="demoForm.password.$invalid" class="btn btn-primary">Sign in</button>
         </form>
+
       </div>
       <div class="col-sm-6">
+        <br><br>
         <div class="well">
 
           <table class="table" style="width:100%;">
@@ -93,6 +122,22 @@
         </div>
       </div>
     </div>
+    </div>
+
+    <div class="row footer">
+      <div class="col-xs-6">
+        <ul class="list-inline text-muted">
+          <li>By <a href="http://www.mikaelkorpela.fi/" class="text-muted">Mikael Korpela</a> & <a href="https://www.trustroots.org/" class="text-muted">Trustroots</a></li>
+        </ul>
+      </div>
+      <div class="col-xs-6">
+        <ul class="list-inline text-muted pull-right">
+          <li><a href="https://github.com/Trustroots/trustpass" class="text-muted">GitHub</a></li>
+          <li><a href="https://github.com/Trustroots/trustpass/blob/master/LICENSE.md" class="text-muted">MIT Licensed</a></li>
+        </ul>
+      </div>
+    </div>
+
   </article>
 
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
