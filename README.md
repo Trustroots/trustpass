@@ -69,7 +69,7 @@ Pass a json object to `tr-trustpass` like this: `tr-trustpass="{maximum: true, s
 | number     | true    | Find 0-9                                                                                                                  |
 | special    | true    | Find a non-word character or the _ (underscore) character                                                                 |
 | minimum    | true    | Check minimum length. Defaults to 8 but you can set it with ng-minlength or minlength attributes, or maxlength option.    |
-| maximum    | false   | Check maximum length. Ddefaults to 50 but you can set it with ng-maxlength or maxlength attributes, or maxlength option). |
+| maximum    | false   | Check maximum length. Defaults to 50 but you can set it with ng-maxlength or maxlength attributes, or maxlength option). |
 | word       | false   | Find a word character.
 
 *"A word character" is a character from a-z, A-Z, 0-9, including the _ (underscore) character.*
@@ -81,8 +81,20 @@ Pass a json object to `tr-trustpass` like this: `tr-trustpass="{maximum: true, s
 | keepHeight   | false                                           | Should dropdown area keep its initially rendered height?                     |
 | minlength    | 8                                               | Minimum length of the password, if minimum test is enabled (on by default).  |
 | maxlength    | 50                                              | Maximum length of the password, if maximum test is enabled (off by default). |
-| messageDone  | Great! Your password is secure.                 | A message shown after all tests pass.                                        |
-| messageGuide |                                                 | A message on top of checklist. Leave empty to hide.                          |
+
+
+#### Labels and messages
+| **Option**      | Default                                         | Description                                                                                                         |
+|-----------------|-------------------------------------------------|---------------------------------------------------------------------------------------------------------------------|
+| messageDone     | Great! Your password is secure.                 | A message shown after all tests pass.                                                                               |
+| messageGuide    |                                                 | A message on top of checklist. Leave empty to hide.                                                                 |
+| lowercaseLabel  | One lowercase character                         | Label for the lowercase test                                                                                        |
+| uppercaseLabel  | One uppercase character                         | Label for the uppercase test                                                                                        |
+| numberLabel     | One number                                      | Label for the number test                                                                                           |
+| specialLabel    | One special character                           | Label for the special test                                                                                          |
+| minimumLabel    | characters minimum                              | Label for the minimum test. The ng-minlength value will be prepend to the label (f.i.: 8 characters minimum)        | 
+| maximumLabel    | characters maximum                              | Label for the maximum test. The ng-maxlength value will be prepend to the label (f.i.: 8 characters maximum)        |
+| wordLabel       | Alphanumeric characters                         | Label for the word test                                                                                             |
 
 
 ## Development
