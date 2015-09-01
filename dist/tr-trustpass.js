@@ -33,24 +33,34 @@
       // Extend our default options with user provided options
       scope.options = angular.extend({
 
-        // Tests
-        // "A word character": a character from a-z, A-Z, 0-9, including the _ (underscore) character.
-        lowercase: true, // Find a-z
-        uppercase: true, // Find A-Z
-        number: true, // Find 0-9
-        special: true, // Find a non-word character or the _ (underscore) character
-        minimum: true, // Check minimum length
-        maximum: false, // Check maximum length
-        word: false, // Find a word character
+          // Tests
+          // "A word character": a character from a-z, A-Z, 0-9, including the _ (underscore) character.
+          lowercase: true, // Find a-z
+          uppercase: true, // Find A-Z
+          number: true, // Find 0-9
+          special: true, // Find a non-word character or the _ (underscore) character
+          minimum: true, // Check minimum length
+          maximum: false, // Check maximum length
+          word: false, // Find a word character
 
-        // Settings
-        toggle: false,
-        minlength: 8,
-        maxlength: 50,
-        keepHeight: false,
-        messageGuide: '',
-        messageDone: 'Great! Your password is secure.',
+          // Settings
+          toggle: false,
+          minlength: 8,
+          maxlength: 50,
+          keepHeight: false,
+          messageGuide: '',
+
+          // Text
+          lowercaseLabel: 'One lowercase character',
+          uppercaseLabel: 'One uppercase character',
+          numberLabel: 'One number',
+          specialLabel: 'One special character',
+          minimumLabel: 'characters minimum',
+          maximumLabel: 'characters maximum',
+          wordLabel: 'Alphanumeric characters',
+          messageDone: 'Great! Your password is secure.'
       }, scope.trTrustpass);
+
 
       /**
        * Override options with min/maxlength attributes (either native HTML)
@@ -123,13 +133,13 @@
         '<section class="trustpass" ng-show="isVisible" ng-style="{height: (options.keepHeight ? initialHeight : \'auto\')}">' +
           '<div class="trustpass-guide" ng-if="isVisible && !isAllValid && options.messageGuide" ng-bind="options.messageGuide"></div>' +
           '<ul class="trustpass-checklist" ng-show="isVisible && !isAllValid">' +
-            '<li ng-class="{ \'trustpass-nope\': !checklist.word,      \'trustpass-yep\': checklist.word      }" ng-if="options.word">Alphanumeric characters</li>' +
-            '<li ng-class="{ \'trustpass-nope\': !checklist.lowercase, \'trustpass-yep\': checklist.lowercase }" ng-if="options.lowercase">One lowercase character</li>' +
-            '<li ng-class="{ \'trustpass-nope\': !checklist.uppercase, \'trustpass-yep\': checklist.uppercase }" ng-if="options.uppercase">One uppercase character</li>' +
-            '<li ng-class="{ \'trustpass-nope\': !checklist.number,    \'trustpass-yep\': checklist.number    }" ng-if="options.number">One number</li>' +
-            '<li ng-class="{ \'trustpass-nope\': !checklist.special,   \'trustpass-yep\': checklist.special   }" ng-if="options.special">One special character</li>' +
-            '<li ng-class="{ \'trustpass-nope\': !checklist.minimum,   \'trustpass-yep\': checklist.minimum   }" ng-if="options.minimum">{{ ::options.minlength }} characters minimum</li>' +
-            '<li ng-class="{ \'trustpass-nope\': !checklist.maximum,   \'trustpass-yep\': checklist.maximum   }" ng-if="options.maximum">{{ ::options.maxlength }} characters maximum</li>' +
+            '<li ng-class="{ \'trustpass-nope\': !checklist.word,      \'trustpass-yep\': checklist.word      }" ng-if="options.word">{{ ::options.wordLabel }}</li>' +
+            '<li ng-class="{ \'trustpass-nope\': !checklist.lowercase, \'trustpass-yep\': checklist.lowercase }" ng-if="options.lowercase">{{ ::options.lowercaseLabel }}</li>' +
+            '<li ng-class="{ \'trustpass-nope\': !checklist.uppercase, \'trustpass-yep\': checklist.uppercase }" ng-if="options.uppercase">{{ ::options.uppercaseLabel }}</li>' +
+            '<li ng-class="{ \'trustpass-nope\': !checklist.number,    \'trustpass-yep\': checklist.number    }" ng-if="options.number">{{ ::options.numberLabel }}</li>' +
+            '<li ng-class="{ \'trustpass-nope\': !checklist.special,   \'trustpass-yep\': checklist.special   }" ng-if="options.special">{{ ::options.specialLabel }}</li>' +
+            '<li ng-class="{ \'trustpass-nope\': !checklist.minimum,   \'trustpass-yep\': checklist.minimum   }" ng-if="options.minimum">{{ ::options.minlength }} {{ ::options.minimumLabel }}</li>' +
+            '<li ng-class="{ \'trustpass-nope\': !checklist.maximum,   \'trustpass-yep\': checklist.maximum   }" ng-if="options.maximum">{{ ::options.maxlength }} {{ ::options.maximumLabel }}</li>' +
           '</ul>' +
           '<div class="trustpass-done" ng-show="isVisible && isAllValid" ng-bind="options.messageDone"></div>' +
         '</section>');
