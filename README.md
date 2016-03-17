@@ -7,6 +7,8 @@ This is a simple password strength meter & validator inspired by MailChimp's [si
 
 ![Screenshot](./example/screenshot.png)
 
+Done by folks at [Trustroots.org](https://www.trustroots.org/)
+
 ## Usage
 Install using [Bower](http://bower.io/):
 ```bash
@@ -98,6 +100,13 @@ Pass a json object to `tr-trustpass` like this: `tr-trustpass="{maximum: true, s
 
 
 ## Development
+
+[Ideas](https://github.com/Trustroots/trustpass/issues) and pull requests totally welcome!
+
+#### Install dependencies
+```bash
+npm install
+```
 
 #### Build
 ```bash
