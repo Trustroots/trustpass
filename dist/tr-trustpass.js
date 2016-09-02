@@ -1,11 +1,12 @@
-(function() {
+(function(window, angular) {
   'use strict';
 
   /**
    * @ngdoc directive
-   * @name trTrustPass.directive:trTrustPass
-   * @description
-   * Checklist validator for password strength.
+   * @module trTrustpass
+   * @name trTrustpass
+   * @restrict A
+   * @scope
    */
   angular
     .module('trTrustpass', [])
@@ -200,4 +201,4 @@
 
   }
 
-})();
+})(window, window.angular);
