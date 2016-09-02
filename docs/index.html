@@ -152,6 +152,7 @@
   <script>
     angular.module('demoApp', ['trTrustpass'])
       .controller('DemoController', ['$scope', function ($scope) {
+        // Form reset example
         $scope.reset = function () {
           $scope.demoForm.$setUntouched();
           $scope.demoForm.$setPristine();

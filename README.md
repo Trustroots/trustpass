@@ -6,7 +6,7 @@ This is a simple password strength meter & validator inspired by MailChimp's [si
 
 [See demo](https://trustroots.github.io/trustpass)
 
-![Screenshot](./example/screenshot.png)
+![Screenshot](./docs/screenshot.png)
 
 Done by folks at [Trustroots.org](https://www.trustroots.org/)
 
