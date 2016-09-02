@@ -1,6 +1,6 @@
 {
   "name": "angular-trustpass",
-  "description": "A simple password strength meter & validator inspired by MailChimp's signup form.",
+  "description": "A simple password strength meter and validator inspired by MailChimp's signup form.",
   "authors": [
     "Mikael Korpela <mikael@ihminen.org> (http://www.mikaelkorpela.fi)"
   ],

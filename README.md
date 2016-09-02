@@ -17,7 +17,7 @@ You can install this package either with `npm` or with `bower`.
 ### npm
 
 ```shell
-npm install tr-trustpass --save
+npm install angular-trustpass --save
 ```
 
 Then add `trTrustpass` as a dependency for your app:
