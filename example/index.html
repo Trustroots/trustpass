@@ -2,7 +2,7 @@
 <html ng-app="demoApp">
 <head>
   <title>Angular Trustpass demo</title>
-  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="tr-trustpass.css">
   <style>
     html, body {
@@ -50,7 +50,7 @@
       </div>
     </div>
 
-    <div class="demo">
+    <div class="demo" ng-controller="DemoController">
       <div class="row">
 
         <div class="col-sm-6">
@@ -91,6 +91,7 @@
                      ng-model="password">
             </div>
             <button type="submit" ng-disabled="demoForm.password.$invalid" class="btn btn-primary">Sign up</button>
+            <button type="reset" class="btn btn-default" ng-click="reset()">Reset form</button>
           </form>
 
         </div>
@@ -146,10 +147,16 @@
 
   </article>
 
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
   <script src="tr-trustpass.js"></script>
   <script>
-    angular.module('demoApp', ['trTrustpass']);
+    angular.module('demoApp', ['trTrustpass'])
+      .controller('DemoController', ['$scope', function ($scope) {
+        $scope.reset = function () {
+          $scope.demoForm.$setUntouched();
+          $scope.demoForm.$setPristine();
+        };
+      }]);
   </script>
 </body>
 </html>

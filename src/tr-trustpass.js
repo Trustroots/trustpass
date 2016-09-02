@@ -102,14 +102,12 @@
         }
       };
 
-      // Keep model up-to date
-      /*
-      element.bind('input', function(event) {
-        scope.$apply(function() {
-          ngModel.$setViewValue(event.target.value);
-        });
-      });
-      */
+      // On form or controller reset
+      ngModel.$setPristine = function() {
+        ngModel.$setViewValue('');
+        ngModel.$dirty = false;
+        ngModel.$pristine = true;
+      };
 
       // If toggling is in use, toggle on element focus
       scope.isVisible = !scope.options.toggle;
