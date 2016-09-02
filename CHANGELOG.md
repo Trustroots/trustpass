@@ -1,3 +1,7 @@
+<a name"0.4.0"></a>
+### 0.4.0 (2016-09-02)
+* Fix `ngModel` not being set empty when surrounding form is reset. Thanks to [@romelgomez](https://github.com/romelgomez) for reporting.
+
 <a name"0.3.0"></a>
 ### 0.3.0 (2016-09-02)
 * Added JavaScript module compatibility support with [node](https://nodejs.org/) and [CommonJS](https://nodejs.org/docs/latest/api/modules.html) using `module.exports` syntax
