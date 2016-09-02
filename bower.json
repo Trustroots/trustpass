@@ -22,7 +22,7 @@
   ],
   "main": [
     "dist/tr-trustpass.js",
-    "dist/tr-trustpass.css"
+    "dist/tr-trustpass.scss"
   ],
   "dependencies": {
     "angular": "1.x"
