@@ -2,7 +2,7 @@
 	"node": true, // Enable globals available when code is running inside of the NodeJS runtime environment.
 	"mocha": false, // Enable globals available when code is running inside of the Mocha tests.
 	"jasmine": false, // Enable globals available when code is running inside of the Jasmine tests.
-	"browser": false, // Standard browser globals e.g. `window`, `document`.
+	"browser": true, // Standard browser globals e.g. `window`, `document`.
 	"esnext": true, // Allow ES.next specific features such as `const` and `let`.
 	"bitwise": false, // Prohibit bitwise operators (&, |, ^, etc.).
 	"camelcase": false, // Permit only camelcase for `var` and `object indexes`.
