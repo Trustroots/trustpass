@@ -1,4 +1,5 @@
 # Angular Trustpass
+
 The trusty password security checklist.
 
 This is a simple password strength meter & validator inspired by MailChimp's [signup form](https://login.mailchimp.com/signup/).
@@ -9,35 +10,56 @@ This is a simple password strength meter & validator inspired by MailChimp's [si
 
 Done by folks at [Trustroots.org](https://www.trustroots.org/)
 
-## Usage
-Install using [Bower](http://bower.io/):
-```bash
-# install package and add it to bower.json dependencies
-$ bower install angular-trustpass --save
+## install
+
+You can install this package either with `npm` or with `bower`.
+
+### npm
+
+```shell
+npm install tr-trustpass --save
 ```
 
-Include the script and style:
-```html
-<link rel="stylesheet" href="bower_modules/angular-trustpass/dist/tr-trustpass.min.css">
-<script src="bower_modules/angular-trustpass/dist/tr-trustpass.min.js"></script>
-```
+Then add `trTrustpass` as a dependency for your app:
 
-Include the `trTrustpass` dependency on your Angular module:
-```html
+```javascript
 angular.module('demoApp', ['trTrustpass']);
 ```
 
+### bower
+
+```shell
+bower install angular-trustpass --save
+```
+
+Add `<script>` and `<link>` to your page:
+```html
+<link rel="stylesheet" href="bower_modules/angular-trustpass/dist/tr-trustpass.css">
+<script src="bower_modules/angular-trustpass/dist/tr-trustpass.js"></script>
+```
+
+Then add `trTrustpass` as a dependency for your app:
+
+```javascript
+angular.module('demoApp', ['trTrustpass']);
+```
+
+## Usage
+
 #### Basic
+
 ```html
 <input type="password" tr-trustpass>
 ```
 
-#### Usage with options
+#### With options
+
 ```html
 <input type="password" tr-trustpass="{special: false}" ng-minlength="9">
 ```
 
-#### More complicated usage with [Bootstrap](http://getbootstrap.com/) classes:
+#### Using with [Bootstrap](http://getbootstrap.com/) classes:
+
 ```html
 <form name="demo">
   <div class="form-group" ng-class="{'has-error': demoForm.password.$invalid && demoForm.password.$dirty,
@@ -59,11 +81,12 @@ angular.module('demoApp', ['trTrustpass']);
 
 Password model will have `$invalid` set true and `$error.trustpass` set true when any of the tests fail. You can then style your form or input with [Angular validation classes](https://docs.angularjs.org/guide/forms#using-css-classes).
 
-
 ## Options
+
 Pass a json object to `tr-trustpass` like this: `tr-trustpass="{maximum: true, special: false}"`
 
 #### Available tests
+
 | **Option** | Default | Description                                                                                                               |
 |------------|---------|---------------------------------------------------------------------------------------------------------------------------|
 | lowercase  | true    | Find a-z                                                                                                                  |
@@ -77,6 +100,7 @@ Pass a json object to `tr-trustpass` like this: `tr-trustpass="{maximum: true, s
 *"A word character" is a character from a-z, A-Z, 0-9, including the _ (underscore) character.*
 
 #### Other settings
+
 | **Option**   | Default                                         | Description                                                                  |
 |--------------|-------------------------------------------------|------------------------------------------------------------------------------|
 | toggle       | false                                           | Should checklist be visible only on focus?                                   |
@@ -84,8 +108,8 @@ Pass a json object to `tr-trustpass` like this: `tr-trustpass="{maximum: true, s
 | minlength    | 8                                               | Minimum length of the password, if minimum test is enabled (on by default).  |
 | maxlength    | 50                                              | Maximum length of the password, if maximum test is enabled (off by default). |
 
-
 #### Labels and messages
+
 | **Option**      | Default                                         | Description                                                                                                         |
 |-----------------|-------------------------------------------------|---------------------------------------------------------------------------------------------------------------------|
 | messageDone     | Great! Your password is secure.                 | A message shown after all tests pass.                                                                               |
@@ -94,30 +118,33 @@ Pass a json object to `tr-trustpass` like this: `tr-trustpass="{maximum: true, s
 | uppercaseLabel  | One uppercase character                         | Label for the uppercase test                                                                                        |
 | numberLabel     | One number                                      | Label for the number test                                                                                           |
 | specialLabel    | One special character                           | Label for the special test                                                                                          |
-| minimumLabel    | characters minimum                              | Label for the minimum test. The ng-minlength value will be prepend to the label (f.i.: 8 characters minimum)        | 
+| minimumLabel    | characters minimum                              | Label for the minimum test. The ng-minlength value will be prepend to the label (f.i.: 8 characters minimum)        |
 | maximumLabel    | characters maximum                              | Label for the maximum test. The ng-maxlength value will be prepend to the label (f.i.: 8 characters maximum)        |
 | wordLabel       | Alphanumeric characters                         | Label for the word test                                                                                             |
-
 
 ## Development
 
 [Ideas](https://github.com/Trustroots/trustpass/issues) and pull requests totally welcome!
 
 #### Install dependencies
+
 ```bash
 npm install
 ```
 
 #### Build
+
 ```bash
 gulp
 ```
 
 #### Run the example
+
 ```bash
 gulp demo
 ```
 ...and open [http://localhost:3000/](http://localhost:3000/) to your browser.
 
 ## License
+
 [MIT](LICENSE.md)
