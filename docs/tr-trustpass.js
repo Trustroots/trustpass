@@ -96,17 +96,11 @@
       scope.$watch('value', validatePasswordStrength);
 
       // Update the passport field whenever the value on the scope changes from outside
+      // Now updates the passport field if the value on the scope is reset to an empty string
       ngModel.$render = function() {
-        if(ngModel.$viewValue) {
+        if(ngModel.$viewValue || ngModel.$viewValue === '') {
           element.val(ngModel.$viewValue);
         }
-      };
-
-      // On form or controller reset
-      ngModel.$setPristine = function() {
-        ngModel.$setViewValue('');
-        ngModel.$dirty = false;
-        ngModel.$pristine = true;
       };
 
       // If toggling is in use, toggle on element focus
